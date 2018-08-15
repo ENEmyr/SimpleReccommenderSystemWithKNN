@@ -45,46 +45,46 @@ int main(){
             cout << "Distance between newdata[" << i << "] and dataset[" << j << "] = " << fixed << setprecision(5) << euclideanDis << endl;
             if (j < 3) {
                 distance[j][0] = euclideanDis;
-                distance[j][1] = dataset[j][2];
+                distance[j][1] = dataset[j][featureNum];
                 continue;
             }
             if(euclideanDis - distance[0][0] <= 0 || euclideanDis - distance[1][0] <=0 || euclideanDis - distance[1][0] <= 0 || euclideanDis - distance[2][0] <= 0){
                 if(distance[0][0] > distance[1][0]){
                     if(distance[0][0] > distance[2][0]){
                         distance[0][0] = euclideanDis;
-                        distance[0][1] = dataset[j][2];
+                        distance[0][1] = dataset[j][featureNum];
                     }else{
                         distance[2][0] = euclideanDis;
-                        distance[2][1] = dataset[j][2];
+                        distance[2][1] = dataset[j][featureNum];
                     }
                 }else if(distance[1][0] > distance[0][0]){
                     if(distance[1][0] > distance[2][0]){
                         distance[1][0] = euclideanDis;
-                        distance[1][1] = dataset[j][2];
+                        distance[1][1] = dataset[j][featureNum];
                     }else{
                         distance[2][0] = euclideanDis;
-                        distance[2][1] = dataset[j][2];
+                        distance[2][1] = dataset[j][featureNum];
                     }
                 }else{
                     if(distance[0][0] > distance[2][0]){
                         distance[0][0] = euclideanDis;
-                        distance[0][1] = dataset[j][2];
+                        distance[0][1] = dataset[j][featureNum];
                     }else{
                         distance[2][0] = euclideanDis;
-                        distance[2][1] = dataset[j][2];
+                        distance[2][1] = dataset[j][featureNum];
                     }
                 }
             }
         }
         //Classified newdata from 3-nearest neighbours
-        if(distance[0][1] == distance[1][1]) newdata[i][2] = distance[0][1];
-        else if(distance[0][1] == distance[2][1]) newdata[i][2] = distance[0][1];
-        else newdata[i][2] = distance[1][1];
+        if(distance[0][1] == distance[1][1]) newdata[i][featureNum] = distance[0][1];
+        else if(distance[0][1] == distance[2][1]) newdata[i][featureNum] = distance[0][1];
+        else newdata[i][featureNum] = distance[1][1];
         //Printing result
         cout << "\nList of minimum distance and class \n===================================\n";
         for(int l = 0; l < distance_size ; l++)
             cout << "Distance = " << fixed << setprecision(5) << distance[l][0] << setw(15) << " , Class = "<< setprecision(0) << distance[l][1] << endl;
-        cout << "===================================\nConclusion\nClass of newdata[" << i << "] = " << newdata[i][2];
+        cout << "===================================\nConclusion\nClass of newdata[" << i << "] = " << newdata[i][featureNum];
         cout << "\n\n************************************************************\n\n";
     }
     return 0;
