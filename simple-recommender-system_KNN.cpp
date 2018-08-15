@@ -9,7 +9,7 @@ int main(){
     /* Assignment */
     const int featureNum = 2;
     int dataset[10][featureNum+1] = { 
-        // form : {feature1, feature2, class}
+        // form : {feature1, feature2, ..., featureNum, class}
         {7, 2, 2},
         {8, 10, 1},
         {4, 3, 2},
@@ -28,7 +28,7 @@ int main(){
         {0, 0}
     };
     int newdata[2][featureNum+1] = { 
-        // form : {feature1, feature2, class}
+        // form : {feature1, feature2, ..., featureNum, class}
         {2, 8, 0}, // class must be 1
         {7, 10, 0}, // class must be 2
     };
