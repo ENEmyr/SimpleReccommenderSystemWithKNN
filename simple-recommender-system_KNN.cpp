@@ -43,11 +43,13 @@ int main(){
             for(int l = 0 ; l < featureNum ; l++) euclideanDis += pow(newdata[i][l] - dataset[j][l], 2);
             euclideanDis = sqrt(euclideanDis);
             cout << "Distance between newdata[" << i << "] and dataset[" << j << "] = " << fixed << setprecision(5) << euclideanDis << endl;
+            //Collect the first three euclideanDis into distance array
             if (j < 3) {
                 distance[j][0] = euclideanDis;
                 distance[j][1] = dataset[j][featureNum];
                 continue;
             }
+            //Collect euclideanDis into distance array if it less than the first three 
             if(euclideanDis - distance[0][0] <= 0 || euclideanDis - distance[1][0] <=0 || euclideanDis - distance[1][0] <= 0 || euclideanDis - distance[2][0] <= 0){
                 if(distance[0][0] > distance[1][0]){
                     if(distance[0][0] > distance[2][0]){
